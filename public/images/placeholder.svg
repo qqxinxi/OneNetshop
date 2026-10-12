@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1">
+      <stop offset="0%" stop-color="#f7eae0"/>
+      <stop offset="100%" stop-color="#f3d4b8"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <rect x="120" y="110" width="560" height="360" rx="32" fill="#fffaf7"/>
+  <circle cx="310" cy="250" r="95" fill="#d9b99d" opacity="0.8"/>
+  <rect x="415" y="195" width="160" height="92" rx="20" fill="#c97a57" opacity="0.9"/>
+  <path d="M415 350L560 350" stroke="#c97a57" stroke-width="16" stroke-linecap="round"/>
+  <text x="400" y="470" font-size="36" text-anchor="middle" fill="#7b4a33" font-family="Arial, sans-serif">OneNetshop</text>
+</svg>

@@ -1,0 +1,43 @@
+<%- include('partials/header', { title: title || '购物车' }) %>
+
+<main class="page-wrap">
+  <div class="container cart-box">
+    <h1>购物车</h1>
+
+    <% if (!cart || cart.items.length === 0) { %>
+      <div class="empty-state">
+        <p>购物车还是空的，先挑选几份心意礼品吧。</p>
+        <a href="/" class="primary-btn">去逛逛</a>
+      </div>
+    <% } else { %>
+      <div class="cart-list">
+        <% cart.items.forEach((item) => { %>
+          <div class="cart-item">
+            <img src="<%= item.image %>" alt="<%= item.title %>" />
+            <div class="cart-item-body">
+              <h3><%= item.title %></h3>
+              <p>数量：<%= item.qty %></p>
+              <p>小计：￥<%= (item.price * item.qty).toFixed(2) %></p>
+            </div>
+            <form action="/cart/remove/<%= item.id %>" method="POST">
+              <button type="submit" class="remove-btn">删除</button>
+            </form>
+          </div>
+        <% }) %>
+      </div>
+
+      <div class="checkout-box">
+        <div>
+          <span>总金额</span>
+          <strong>￥<%= Number(cart.total).toFixed(2) %></strong>
+        </div>
+
+        <form action="/checkout" method="POST">
+          <button type="submit" class="primary-btn large-btn">去结算</button>
+        </form>
+      </div>
+    <% } %>
+  </div>
+</main>
+
+<%- include('partials/footer') %>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container nav-wrap">
+        <a href="/" class="brand">OneNetshop</a>
+        <nav class="nav-links">
+          <a href="/">首页</a>
+          <a href="/admin">后台</a>
+          <a href="/cart" class="cart-pill">购物车 (<%= cart ? cart.items.length : 0 %>)</a>
+        </nav>
+      </div>
+    </header>

@@ -1,0 +1,22 @@
+<%- include('partials/header', { title: title || '商品详情' }) %>
+
+<main class="page-wrap">
+  <div class="container detail-layout">
+    <div class="detail-image-box">
+      <img src="<%= product.image %>" alt="<%= product.title %>" />
+    </div>
+
+    <div class="detail-copy">
+      <p class="eyebrow">礼品详情</p>
+      <h1><%= product.title %></h1>
+      <div class="detail-price">￥<%= Number(product.price).toFixed(2) %></div>
+      <p class="detail-description"><%= product.description %></p>
+
+      <form action="/cart/add/<%= product._id %>" method="POST">
+        <button type="submit" class="primary-btn large-btn">加入购物车</button>
+      </form>
+    </div>
+  </div>
+</main>
+
+<%- include('partials/footer') %>

@@ -1,0 +1,15 @@
+<%- include('partials/header', { title: title || '下单成功' }) %>
+
+<main class="page-wrap">
+  <div class="container success-box">
+    <h1>下单成功</h1>
+    <p>感谢您的购买，订单已受理。</p>
+    <div class="success-card">
+      <p>订单总额：￥<%= Number(order.total).toFixed(2) %></p>
+      <p>订单时间：<%= new Date(order.createdAt).toLocaleString('zh-CN') %></p>
+    </div>
+    <a href="/" class="primary-btn">继续购物</a>
+  </div>
+</main>
+
+<%- include('partials/footer') %>

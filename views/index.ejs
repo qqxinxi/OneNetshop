@@ -1,0 +1,53 @@
+<%- include('partials/header', { title: title || '首页' }) %>
+
+<main class="page-wrap">
+  <section class="hero-banner">
+    <div class="container hero-grid">
+      <div>
+        <p class="eyebrow">礼品定制 / 纪念珍藏</p>
+        <h1>让每个瞬间都值得收藏</h1>
+        <p class="hero-copy">
+          发现门店精选的纪念礼品、照片创作和定制礼盒，用心传递每一份关怀。
+        </p>
+        <div class="hero-actions">
+          <a href="#products" class="primary-btn">立即选购</a>
+          <a href="/admin" class="secondary-btn">后台管理</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="mini-box">精选礼盒</div>
+        <div class="mini-box accent">照片定制</div>
+        <div class="mini-box">纪念日礼物</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="products" class="container product-section">
+    <div class="section-head">
+      <h2>热门礼品</h2>
+      <span>灵感与温度并存</span>
+    </div>
+
+    <div class="product-grid">
+      <% products.forEach((product) => { %>
+        <article class="product-card">
+          <a href="/products/<%= product._id %>" class="product-image-wrap">
+            <img src="<%= product.image %>" alt="<%= product.title %>" />
+          </a>
+          <div class="product-body">
+            <h3><%= product.title %></h3>
+            <p><%= product.description %></p>
+            <div class="product-meta">
+              <span class="price">￥<%= Number(product.price).toFixed(2) %></span>
+              <form action="/cart/add/<%= product._id %>" method="POST">
+                <button type="submit" class="add-cart">加入购物车</button>
+              </form>
+            </div>
+          </div>
+        </article>
+      <% }) %>
+    </div>
+  </section>
+</main>
+
+<%- include('partials/footer') %>
